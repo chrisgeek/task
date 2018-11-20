@@ -1,0 +1,25 @@
+<h1>New Gig</h1>
+
+<%= form_with(model: [ @project, @project.gigs.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+   <p>
+    <%= form.label :timeline %><br>
+     <%= form.date_select :timeline  ,  prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year'} , start_year: 2018 %>
+  </p>
+
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+
+
+<%= link_to 'Back', project_gigs_path %>

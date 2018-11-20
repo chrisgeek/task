@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @gig.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @gig.description %>
+</p>
+
+<p>
+  <strong>Timeline:</strong>
+  <%= @gig.timeline %>
+</p>
+
+<p><%= link_to 'Mark as Done', project_gig_status_path(@gig), method: :patch %></p>
+
+
+<%= link_to 'Edit', edit_gig_path(@gig) %> |

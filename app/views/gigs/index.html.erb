@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Gigs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Timeline</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gigs.each do |gig| %>
+      <tr>
+        <td><%= gig.name %></td>
+        <td><%= gig.description %></td>
+        <td><%= gig.timeline %></td>
+        <td><%= link_to 'Show', gig %></td>
+        <td><%= link_to 'Edit', edit_gig_path(gig) %></td>
+        <td><%= link_to 'Destroy', gig, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <td><%= link_to 'Mark as Done', gig_status_path(gig), method: :patch %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'New Gig', new_project_gig_path %>

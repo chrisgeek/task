@@ -1,0 +1,44 @@
+<p id="notice">
+  <%= notice %>    
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @project.team %>
+</p>
+<p>
+  <strong>GIGS</strong>
+  <% @project.gigs.each do |gig| %>
+  <p><%= gig.name%></p>
+  	<p>
+      <%= gig.description %> <%= link_to 'Edit', edit_gig_path(gig) %>
+        <span>
+          <%= link_to 'Mark as Done', gig_status_path(gig.id), method: :patch %>            
+        </span>
+    </p>
+  <%end%>
+</p>
+
+<h2>ADD GIG</h2>
+<%= form_with(model: [ @project, @project.gigs.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
