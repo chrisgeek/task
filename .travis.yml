@@ -1,8 +1,9 @@
 services:
   - postgresql
   before_script:
-    - psql -c "CREATE DATABASE task_test;" -U postgres
-    - psql -c "CREATE USER foo WITH PASSWORD 'bar';" -U postgres 
+    - "psql -c 'CREATE DATABASE task_test;' -U postgres"
+    - "bundle exec rails db:migrate"
+    #- psql -c "CREATE USER foo WITH PASSWORD 'bar';" -U postgres 
   language: ruby
   rvm:
     -2.5.1
